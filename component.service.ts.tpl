@@ -15,12 +15,12 @@ import { MainService } from '../main.service';
 @Injectable()
 export class <#className#>Service extends ServiceBase {
 
-	private _form : FormGroup;
+    private _form : FormGroup;
 
     constructor(private api: ApiService<any>,private serviceFields: <#className#>ServiceFields, private globalServiceCulture: GlobalServiceCulture, private mainService: MainService) {
 
-		super();
-		this._form = this.serviceFields.getFormFields();
+        super();
+        this._form = this.serviceFields.getFormFields();
 
     }
 
@@ -35,20 +35,20 @@ export class <#className#>Service extends ServiceBase {
             modelFilter: {},
             summary: {},
             model: {},
-	    	details: {},
+            details: {},
             infos: this.getInfos(),
             grid: this.getInfoGrid(this.getInfos()),
-			generalInfo: this.mainService.getInfos(),
+            generalInfo: this.mainService.getInfos(),
             form: this._form,
             masks: this.masksConfig()
         });
     }
 
-	getInfos() {
-		return this.serviceFields.getInfosFields();
+    getInfos() {
+        return this.serviceFields.getInfosFields();
     }
 
-	getInfoGrid(infos : any) {
+    getInfoGrid(infos : any) {
         return super.getInfoGrid(infos)
     }
 
@@ -61,18 +61,18 @@ export class <#className#>Service extends ServiceBase {
     }
 
     getInfosTranslated(culture: string) {
-		return this.globalServiceCulture.getInfosTranslatedStrategy('<#className#>', culture, this.getInfos(), []);
+        return this.globalServiceCulture.getInfosTranslatedStrategy('<#className#>', culture, this.getInfos(), []);
     }
 
     get(filters?: any): Observable<any> {
         return this.api.setResource('<#className#>').get(filters);
     }
 
-	getDataCustom(filters?: any): Observable<any> {
+    getDataCustom(filters?: any): Observable<any> {
         return this.api.setResource('<#className#>').getDataCustom(filters);
     }
 
-	getDataListCustom(filters?: any): Observable<any> {
+    getDataListCustom(filters?: any): Observable<any> {
         return this.api.setResource('<#className#>').getDataListCustom(filters);
     }
 
@@ -86,13 +86,10 @@ export class <#className#>Service extends ServiceBase {
     }
 
     delete(model: any): Observable<any> {
-
         return this.api.setResource('<#className#>').delete(model);
-
     }
     
-    export(filters?: any): Observable<any>
-    {
+    export(filters?: any): Observable<any> {
         return this.api.setResource('<#className#>').export(filters);
     }
 }

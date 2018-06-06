@@ -18,7 +18,7 @@ export class <#className#>DetailsComponent implements OnInit {
 
     constructor(private <#classNameInstance#>Service: <#className#>Service, private route: ActivatedRoute, private router: Router) {
 
-		this.vm = this.<#classNameInstance#>Service.initVM();
+        this.vm = this.<#classNameInstance#>Service.initVM();
 
     }
 
@@ -28,15 +28,15 @@ export class <#className#>DetailsComponent implements OnInit {
             this.id = params['id']; 
         });
 
-		if (this.id) {
-			this.<#classNameInstance#>Service.get({ id: this.id }).subscribe((data) => {
-				this.vm.details = data.data;
-			})
-		};
-		this.updateCulture();
+        if (this.id) {
+            this.<#classNameInstance#>Service.get({ id: this.id }).subscribe((data) => {
+                this.vm.details = data.data;
+            })
+        };
+        this.updateCulture();
     }
-	
-	updateCulture(culture: string = null) {
+    
+    updateCulture(culture: string = null) {
         this.<#classNameInstance#>Service.updateCulture(culture).then((infos: any) => {
             this.vm.infos = infos;
             this.vm.grid = this.<#classNameInstance#>Service.getInfoGrid(infos);

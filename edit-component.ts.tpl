@@ -20,16 +20,16 @@ export class <#className#>EditComponent extends ComponentBase implements OnInit,
     private sub: any;
 
     constructor(private <#classNameInstance#>Service: <#className#>Service, private route: ActivatedRoute, private router: Router, private ref: ChangeDetectorRef) {
-		super();
-		this.vm = null;
+        super();
+        this.vm = null;
     }
 
     ngOnInit() {
 
-		this.vm = this.<#classNameInstance#>Service.initVM();
+        this.vm = this.<#classNameInstance#>Service.initVM();
         this.vm.actionDescription = "Edição";
 
-		this.<#classNameInstance#>Service.detectChanges(this.ref);
+        this.<#classNameInstance#>Service.detectChanges(this.ref);
 
         this.sub = this.route.params.subscribe(params => {
             this.id = params['id']; 
@@ -37,13 +37,13 @@ export class <#className#>EditComponent extends ComponentBase implements OnInit,
 
         this.<#classNameInstance#>Service.get({ id: this.id }).subscribe((data) => {
             this.vm.model = data.data;
-			this.showContainerEdit();
+            this.showContainerEdit();
         })
 
-   		this.updateCulture();
+           this.updateCulture();
     }
-	
-	updateCulture(culture: string = null) {
+    
+    updateCulture(culture: string = null) {
         this.<#classNameInstance#>Service.updateCulture(culture).then((infos: any) => {
             this.vm.infos = infos;
             this.vm.grid = this.<#classNameInstance#>Service.getInfoGrid(infos);
@@ -57,7 +57,7 @@ export class <#className#>EditComponent extends ComponentBase implements OnInit,
         });
     }
 
-	ngOnDestroy() {
-		this.<#classNameInstance#>Service.detectChangesStop();
+    ngOnDestroy() {
+        this.<#classNameInstance#>Service.detectChangesStop();
     }
 }

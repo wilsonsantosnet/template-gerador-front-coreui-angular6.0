@@ -18,7 +18,7 @@ export class <#className#>PrintComponent implements OnInit {
     private sub: any;
 
     constructor(private <#classNameInstance#>Service: <#className#>Service, private route: ActivatedRoute) {
-		this.vm = this.<#classNameInstance#>Service.initVM();
+        this.vm = this.<#classNameInstance#>Service.initVM();
     }
 
     ngOnInit() {
@@ -27,18 +27,18 @@ export class <#className#>PrintComponent implements OnInit {
             this.id = params['id']; 
         });
 
-		if (this.id)
-		{
-			this.<#classNameInstance#>Service.get({ id: this.id }).subscribe((data) => {
-				this.vm.details = data.data;
-			});
-		}
+        if (this.id)
+        {
+            this.<#classNameInstance#>Service.get({ id: this.id }).subscribe((data) => {
+                this.vm.details = data.data;
+            });
+        }
 
     }
     
-	onPrint() {
+    onPrint() {
         window.print();
-	}
+    }
    
 
 

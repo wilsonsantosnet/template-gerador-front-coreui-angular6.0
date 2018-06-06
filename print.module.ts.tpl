@@ -16,14 +16,14 @@ import { CommonSharedModule } from '../../../common/common-shared.module';
 @NgModule({
     imports: [
         CommonModule,
-		CommonSharedModule,
+        CommonSharedModule,
         <#className#>PrintRoutingModule,
-		FormsModule
+        FormsModule
     ],
     declarations: [
         <#className#>PrintComponent,
         <#className#>ContainerDetailsComponent,
-		<#className#>FieldDetailsComponent
+        <#className#>FieldDetailsComponent
     ],
     providers: [<#className#>Service, ApiService, <#className#>ServiceFields],
     exports: [<#className#>ContainerDetailsComponent,<#className#>FieldDetailsComponent]

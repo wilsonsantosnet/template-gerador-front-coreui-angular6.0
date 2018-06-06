@@ -6,7 +6,7 @@ import { GlobalService } from '../../global.service';
 @NgModule({
     imports: [
         RouterModule.forChild([
-            { path: '', component: <#className#>Component },
+            { path: '', data : { title : "<#className#>" }, component: <#className#>Component },
         ])
     ],
     exports: [

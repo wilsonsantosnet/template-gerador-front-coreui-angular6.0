@@ -1,1 +1,1 @@
-﻿	<#propertyName#> : <#typeTS#>;
+﻿    <#propertyName#> : <#typeTS#>;

@@ -18,9 +18,9 @@ export class <#className#>FieldEditComponent implements OnInit {
 
     ngOnInit() { }
 
-	ngOnChanges() {
+    ngOnChanges() {
        this.ref.detectChanges()
-	}
+    }
 
         
 <#fieldItems#>

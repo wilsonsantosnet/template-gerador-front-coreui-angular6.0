@@ -10,10 +10,10 @@ import { GlobalService } from '../../global.service';
 @NgModule({
     imports: [
         RouterModule.forChild([
-            { path: '', component: <#className#>Component },
-            { path: 'edit/:id', component: <#className#>EditComponent },
-			{ path: 'details/:id', component: <#className#>DetailsComponent },
-			{ path: 'create', component: <#className#>CreateComponent }
+            { path: '', data : { title : "<#className#>" }, component: <#className#>Component },
+            { path: 'edit/:id', data : { title : "<#className#>" } ,component: <#className#>EditComponent },
+            { path: 'details/:id', data : { title : "<#className#>" }, component: <#className#>DetailsComponent },
+            { path: 'create', data : { title : "<#className#>" }, component: <#className#>CreateComponent }
         ])
     ],
     exports: [

@@ -17,19 +17,19 @@ export class <#className#>CreateComponent extends ComponentBase implements OnIni
     @Input() vm: ViewModel<any>;
  
     constructor(private <#classNameInstance#>Service: <#className#>Service, private route: ActivatedRoute, private router: Router, private ref: ChangeDetectorRef) {
-		super();
-		this.vm = null;
+        super();
+        this.vm = null;
     }
 
     ngOnInit() {
-		this.vm = this.<#classNameInstance#>Service.initVM();
+        this.vm = this.<#classNameInstance#>Service.initVM();
         this.vm.actionDescription = "Cadastrar";
 
-		this.<#classNameInstance#>Service.detectChanges(this.ref);  
-		this.updateCulture();
+        this.<#classNameInstance#>Service.detectChanges(this.ref);  
+        this.updateCulture();
     }
-	
-	updateCulture(culture: string = null) {
+    
+    updateCulture(culture: string = null) {
         this.<#classNameInstance#>Service.updateCulture(culture).then((infos: any) => {
             this.vm.infos = infos;
             this.vm.grid = this.<#classNameInstance#>Service.getInfoGrid(infos);
@@ -43,7 +43,7 @@ export class <#className#>CreateComponent extends ComponentBase implements OnIni
         });
     }
 
-	ngOnDestroy() {
-		this.<#classNameInstance#>Service.detectChangesStop();
+    ngOnDestroy() {
+        this.<#classNameInstance#>Service.detectChangesStop();
     }
 }

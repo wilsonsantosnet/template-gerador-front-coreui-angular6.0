@@ -16,21 +16,21 @@ import { ComponentBase } from '../../common/components/component.base';
 export class <#className#>Component extends ComponentBase implements OnInit, OnDestroy {
 
     vm: ViewModel<any>;
-	changeCultureEmitter: EventEmitter<string>;
+    changeCultureEmitter: EventEmitter<string>;
 
-	
+    
     constructor(private <#classNameInstance#>Service: <#className#>Service, private router: Router, private ref: ChangeDetectorRef) {
 
         super();
-		this.vm = null;
+        this.vm = null;
     }
 
     ngOnInit() {
 
-		this.vm = this.<#classNameInstance#>Service.initVM();
-		this.<#classNameInstance#>Service.detectChanges(this.ref);
+        this.vm = this.<#classNameInstance#>Service.initVM();
+        this.<#classNameInstance#>Service.detectChanges(this.ref);
 
-		this.updateCulture();
+        this.updateCulture();
 
         this.changeCultureEmitter = GlobalService.getChangeCultureEmitter().subscribe((culture : any) => {
             this.updateCulture(culture);
@@ -38,7 +38,7 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
 
     }
 
-	updateCulture(culture: string = null)
+    updateCulture(culture: string = null)
     {
         this.<#classNameInstance#>Service.updateCulture(culture).then((infos : any) => {
             this.vm.infos = infos;
@@ -46,9 +46,9 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
         });
     }
 
-	ngOnDestroy() {
+    ngOnDestroy() {
         this.changeCultureEmitter.unsubscribe();
-		this.<#classNameInstance#>Service.detectChangesStop();
+        this.<#classNameInstance#>Service.detectChangesStop();
     }
 
 }

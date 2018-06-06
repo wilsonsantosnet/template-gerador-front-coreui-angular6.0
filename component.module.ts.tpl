@@ -32,23 +32,23 @@ import { CommonSharedModule } from '../../common/common-shared.module';
     imports: [
         CommonModule,
         FormsModule,
-		ReactiveFormsModule,
-		ModalModule.forRoot(),
-		CommonSharedModule,
+        ReactiveFormsModule,
+        ModalModule.forRoot(),
+        CommonSharedModule,
         <#className#>RoutingModule,
         <#className#>PrintModule
     ],
     declarations: [
         <#className#>Component,
-		<#className#>ContainerFilterComponent,
-		<#className#>FieldFilterComponent,
+        <#className#>ContainerFilterComponent,
+        <#className#>FieldFilterComponent,
         <#className#>EditComponent,
-		<#className#>CreateComponent,
-		<#className#>DetailsComponent,
-		<#className#>FieldCreateComponent,
-		<#className#>FieldEditComponent,
-		<#className#>ContainerCreateComponent,
-		<#className#>ContainerEditComponent
+        <#className#>CreateComponent,
+        <#className#>DetailsComponent,
+        <#className#>FieldCreateComponent,
+        <#className#>FieldEditComponent,
+        <#className#>ContainerCreateComponent,
+        <#className#>ContainerEditComponent
     ],
     providers: [<#className#>Service,<#className#>ServiceFields, ApiService],
 })

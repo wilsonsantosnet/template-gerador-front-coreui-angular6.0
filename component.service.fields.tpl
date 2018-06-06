@@ -8,23 +8,20 @@ export class <#className#>ServiceFields extends ServiceBase {
 
 
     constructor() {
-		super()
-	}
-
-	getFormFields(moreFormControls? : any) {
-		var formControls = Object.assign(moreFormControls || {},{
-<#riquered#>
-        });
-		return new FormGroup(formControls);
-	}
-
-
-
-	getInfosFields(moreInfosFields? : any, orderByMore = false) {
-		var defaultInfosFields = {
-<#infos#>
-        };
-		return this.mergeInfoFields(defaultInfosFields, moreInfosFields, orderByMore);
+        super()
     }
 
+    getFormFields(moreFormControls? : any) {
+        var formControls = Object.assign(moreFormControls || {},{
+<#riquered#>
+        });
+        return new FormGroup(formControls);
+    }
+
+    getInfosFields(moreInfosFields? : any, orderByMore = false) {
+        var defaultInfosFields = {
+<#infos#>
+        };
+                return this.mergeInfoFields(defaultInfosFields, moreInfosFields, orderByMore);
+    }
 }

@@ -16,9 +16,9 @@ import { CommonSharedModule } from '../../common/common-shared.module';
     imports: [
         CommonModule,
         FormsModule,
-		ReactiveFormsModule,
-		ModalModule.forRoot(),
-		CommonSharedModule,
+        ReactiveFormsModule,
+        ModalModule.forRoot(),
+        CommonSharedModule,
         <#className#>RoutingModule,
     ],
     declarations: [

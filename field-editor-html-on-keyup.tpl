@@ -1,4 +1,4 @@
-﻿	public onEditorKeyup<#propertyName#>(model : any) {
+﻿    public onEditorKeyup<#propertyName#>(model : any) {
 
         this.vm.model.<#propertyName#> = model;
     }
