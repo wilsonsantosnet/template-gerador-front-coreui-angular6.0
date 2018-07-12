@@ -14,10 +14,9 @@
       </form>
     </article>
     <footer class="card-footer  d-flex justify-content-end">
-      <button class="btn btn-default" type="button" (click)="onCancel()">
-        <i class="icon-close icons"></i>
-        {{vm.generalInfo.cancelar.label}}
-      </button>
+      <a href="javascript:history.back()" class="btn btn-secondary">
+		    <i class="fa fa-reply"></i> Voltar
+	    </a>
       <button type="submit" class="btn btn-success " [disabled]="vm != null && vm.form.invalid">
         <i class="icon-check icons"></i>
         {{vm.generalInfo.salvar.label}}
