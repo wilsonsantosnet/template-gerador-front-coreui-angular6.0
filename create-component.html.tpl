@@ -1,5 +1,5 @@
 ﻿<div class="card">
-  <div class="card-header gc-grid__header">
+  <div class="card-header">
     <h3><i class="fa fa-edit"></i> {{ vm.actionTitle }}</h3>
     <p>{{ vm.actionDescription }}</p>
   </div>
