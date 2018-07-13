@@ -7,6 +7,7 @@ import { <#className#>Service } from './<#classNameLowerAndSeparator#>.service';
 import { ViewModel } from '../../common/model/viewmodel';
 import { GlobalService, NotificationParameters} from '../../global.service';
 import { ComponentBase } from '../../common/components/component.base';
+import { LocationHistoryService } from '../../common/services/location.history';
 
 @Component({
     selector: 'app-<#classNameLowerAndSeparator#>',
@@ -48,6 +49,9 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
             this.updateCulture(culture);
         });
 
+        if (this._navigatioModal)
+            LocationHistoryService.saveLocal("<#classNameLower#>");
+
     }
 
     updateCulture(culture: string = null)
@@ -85,22 +89,27 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
 
         this.showContainerCreate();
         this.vm.model = {};
-        this.saveModal.show();
+        this.navigateStrategy(this.saveModal, this.router, "/<#classNameLower#>/create");
     }
 
     public onEdit(model: any) {
 
         this.vm.model = {};
         let newModel : any = model;
-        if (model)
-        {
+        if (model)  {
             newModel = <#ParametersKeyNamesModel#>
         }
-        this.<#classNameInstance#>Service.get(newModel).subscribe((result) => {
-            this.vm.model = result.dataList ? result.dataList[0] : result.data;
-            this.showContainerEdit();
-            this.editModal.show();
-        })
+
+        if (!this._navigatioModal) {
+            this.navigateStrategy(this.editModal, this.router, "/<#classNameLower#>/edit/" + newModel.id);
+        }
+        else {
+            this.<#classNameInstance#>Service.get(newModel).subscribe((result) => {
+				      this.vm.model = result.dataList ? result.dataList[0] : result.data;
+				      this.showContainerEdit();
+				      this.editModal.show();
+            })
+        }
     }
 
     public onSave(model: any) {
@@ -157,7 +166,7 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
     }
 
     public onClearFilter() {
-          this.vm.modelFilter = {};
+        this.vm.modelFilter = {};
         GlobalService.getNotificationEmitter().emit(new NotificationParameters("init", {
             model: {}
         }));
