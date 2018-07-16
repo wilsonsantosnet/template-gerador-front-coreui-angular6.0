@@ -40,7 +40,7 @@ export class <#className#>EditComponent extends ComponentBase implements OnInit,
             this.showContainerEdit();
         })
 
-           this.updateCulture();
+        this.updateCulture();
     }
     
     updateCulture(culture: string = null) {
@@ -53,7 +53,8 @@ export class <#className#>EditComponent extends ComponentBase implements OnInit,
     onSave(model : any) {
 
         this.<#classNameInstance#>Service.save(model).subscribe((result) => {
-            this.router.navigate([LocationHistoryService.getLastNavigation()])
+            if (!this.vm.manterTelaAberta)
+                this.router.navigate([LocationHistoryService.getLastNavigation()])
         });
     }
 

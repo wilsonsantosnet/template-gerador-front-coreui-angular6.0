@@ -40,7 +40,8 @@ export class <#className#>Service extends ServiceBase {
             grid: this.getInfoGrid(this.getInfos()),
             generalInfo: this.mainService.getInfos(),
             form: this._form,
-            masks: this.masksConfig()
+            masks: this.masksConfig(),
+			manterTelaAberta : false
         });
     }
 

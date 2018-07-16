@@ -39,7 +39,9 @@ export class <#className#>CreateComponent extends ComponentBase implements OnIni
     onSave(model : any) {
 
         this.<#classNameInstance#>Service.save(model).subscribe((result) => {
-            this.router.navigate([LocationHistoryService.getLastNavigation()])
+            this.vm.model.<#KeyNameCamelCase#> = result.data.<#KeyNameCamelCase#>;
+            if (!this.vm.manterTelaAberta)
+                this.router.navigate([LocationHistoryService.getLastNavigation()])
         });
     }
 

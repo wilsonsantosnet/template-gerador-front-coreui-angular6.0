@@ -9,20 +9,20 @@
           <small class="text-muted">{{ vm.actionDescription }}</small>
         </div>
         <div class="col text-right">
-          <a class="btn py-0" href="javascript:history.back()" title="{{vm.generalInfo.voltar.label}}">
+          <a *ngIf="_showBtnBack" class="btn py-0" href="javascript:history.back()" title="{{vm.generalInfo.voltar.label}}">
             <span class="fa fa-arrow-left" aria-hidden="true"></span> {{vm.generalInfo.voltar.label}}
           </a>
-          <a class="btn py-0" (click)="onShowFilter()" title="{{vm.generalInfo.filtro.label}}">
+          <a *ngIf="_showBtnFilter" class="btn py-0" (click)="onShowFilter()" title="{{vm.generalInfo.filtro.label}}">
             <span class="fa fa-filter" aria-hidden="true"></span> {{vm.generalInfo.filtro.label}}
           </a>
-          <a class="btn py-0" (click)="onCreate()" title="{{vm.generalInfo.novoItem.label}}">
+          <a *ngIf="_showBtnNew" class="btn py-0" (click)="onCreate()" title="{{vm.generalInfo.novoItem.label}}">
             <span class="fa fa-plus" aria-hidden="true"></span> {{vm.generalInfo.novoItem.label}}
           </a>
         </div>
       </div>
     </header>
     <article class="card-body">
-      <make-grid [(vm)]="vm" (edit)="onEdit($event)" (details)="onDetails($event)" (print)="onPrint($event)" (deleteConfimation)="onDeleteConfimation($event)" (orderBy)="onOrderBy($event)"></make-grid>
+      <make-grid [(vm)]="vm" (edit)="onEdit($event)" (details)="onDetails($event)" (print)="onPrint($event)" (deleteConfimation)="onDeleteConfimation($event)" (orderBy)="onOrderBy($event)" [showPrint]="_showBtnPrint" [showDelete]="_showBtnDelete" [showDetails]="_showBtnDetails" [showEdit]="_showBtnEdit"></make-grid>
     </article>
     <footer class="card-footer">
       <make-pagination [(vm)]="vm" (pageChanged)="onPageChanged($event)"></make-pagination>

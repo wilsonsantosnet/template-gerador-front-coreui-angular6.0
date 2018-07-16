@@ -51,6 +51,7 @@ import { CommonSharedModule } from '../../common/common-shared.module';
         <#className#>ContainerEditComponent
     ],
     providers: [<#className#>Service,<#className#>ServiceFields, ApiService],
+	exports: [<#className#>Component]
 })
 export class <#className#>Module {
 

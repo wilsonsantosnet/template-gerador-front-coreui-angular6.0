@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, ViewChild, Output, EventEmitter, ChangeDetectorRef,OnDestroy } from '@angular/core';
+﻿import { Component, OnInit, ViewChild, Output, EventEmitter, ChangeDetectorRef, OnDestroy, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule, FormGroup, FormControl} from '@angular/forms';
 
@@ -16,8 +16,12 @@ import { LocationHistoryService } from '../../common/services/location.history';
 })
 export class <#className#>Component extends ComponentBase implements OnInit, OnDestroy {
 
-    vm: ViewModel<any>;
+    @Input() parentIdValue: any;
+    @Input() parentIdField: string;
+    @Input() isParent: boolean;
 
+    vm: ViewModel<any>;
+	
     operationConfimationYes: any;
     changeCultureEmitter: EventEmitter<string>;
 
@@ -30,15 +34,21 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
 
         super();
         this.vm = null;
+
     }
 
     ngOnInit() {
 
         this.vm = this.<#classNameInstance#>Service.initVM();
+        this.configurationForParent();
+
+        if (this.parentIdValue) 
+            this.vm.modelFilter[this.parentIdField] = this.parentIdValue;
+
         this.<#classNameInstance#>Service.detectChanges(this.ref);
         this.<#classNameInstance#>Service.OnHide(this.saveModal, this.editModal, () => { this.hideComponents() });
 
-        this.<#classNameInstance#>Service.get().subscribe((result) => {
+        this.<#classNameInstance#>Service.get(this.vm.modelFilter).subscribe((result) => {
             this.vm.filterResult = result.dataList;
             this.vm.summary = result.summary;
         });
@@ -52,6 +62,16 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
         if (this._navigatioModal)
             LocationHistoryService.saveLocal("<#classNameLower#>");
 
+        this.vm.isParent = this.isParent
+    }
+
+    configurationForParent() {
+        if (this.isParent) {
+            this._showBtnBack = false;
+            this._showBtnFilter = false;
+            this._showBtnDetails = false;
+            this._showBtnPrint = false;
+        }
     }
 
     updateCulture(culture: string = null)
@@ -88,7 +108,11 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
     public onCreate() {
 
         this.showContainerCreate();
+
         this.vm.model = {};
+        if (this.parentIdValue)
+            this.vm.model[this.parentIdField] = this.parentIdValue;
+
         this.navigateStrategy(this.saveModal, this.router, "/<#classNameLower#>/create");
     }
 
@@ -120,6 +144,7 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
                 return <#ExpressionKeyNames#>;
             });
 
+            this.vm.model.<#KeyNameCamelCase#> = result.data.<#KeyNameCamelCase#>;
             this.vm.filterResult.push(result.data);
             this.vm.summary.total = this.vm.filterResult.length
 
@@ -142,12 +167,17 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
         {
             newModel = <#ParametersKeyNamesModel#>
         }
-
-        this.showContainerDetails();
-        this.detailsModal.show();
-        this.<#classNameInstance#>Service.get(newModel).subscribe((result) => {
-            this.vm.details = result.dataList ? result.dataList[0] : result.data;
-        })
+		
+        if (!this._navigatioModal) {
+            this.navigateStrategy(this.editModal, this.router, "/<#classNameLower#>/details/" + newModel.id);
+        }
+        else {
+            this.<#classNameInstance#>Service.get(newModel).subscribe((result) => {
+				      this.vm.details = result.dataList ? result.dataList[0] : result.data;
+				      this.showContainerDetails();
+				      this.detailsModal.show();
+            })
+        }
 
     }
 
