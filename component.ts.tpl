@@ -62,7 +62,9 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
         if (this._navigatioModal)
             LocationHistoryService.saveLocal("<#classNameLower#>");
 
-        this.vm.isParent = this.isParent
+        this.vm.isParent = this.isParent;
+        this.vm.ParentIdField = this.parentIdField;
+	
     }
 
     configurationForParent() {
