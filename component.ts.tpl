@@ -64,7 +64,6 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
 
         this.vm.isParent = this.isParent;
         this.vm.ParentIdField = this.parentIdField;
-	
     }
 
     configurationForParent() {
