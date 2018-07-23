@@ -13,7 +13,7 @@
       <div class="modal-footer">
         <button class="btn btn-default " type="button" data-dismiss="modal" >
           <i class="icon-close icons"></i>
-          {{vm.generalInfo.cancelar.label}}
+          {{vm.generalInfo | traduction:"cancelar"}}
         </button>
       </div>
     </div>

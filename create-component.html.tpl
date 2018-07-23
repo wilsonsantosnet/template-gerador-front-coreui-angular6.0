@@ -18,7 +18,7 @@
 			</a>
 		  <button type="submit" class="btn btn-success " [disabled]="vm != null && vm.form.invalid">
 			<i class="icon-check icons"></i>
-			{{vm.generalInfo.salvar.label}}
+			{{vm.generalInfo | traduction:'salvar'}}
 		  </button>
 		</footer>
 	  </section>
