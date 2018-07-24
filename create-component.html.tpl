@@ -13,9 +13,14 @@
 			<app-<#classNameLowerAndSeparator#>-container-create [(vm)]="vm"></app-<#classNameLowerAndSeparator#>-container-create>
 		</article>
 		<footer class="card-footer  d-flex justify-content-end">
-		  <a href="javascript:history.back()" class="btn btn-secondary">
-				<i class="fa fa-reply"></i> Voltar
-			</a>
+		  <a href="javascript:history.back()" class="btn btn-secondary" (click)="onBack($event)" *ngIf="!isParent">
+			<i class="fa fa-reply"></i>
+			{{vm.generalInfo | traduction:'voltar'}}
+		  </a>
+		  <a href="javascript:history.back()" class="btn btn-secondary" (click)="onBack($event)" *ngIf="isParent">
+			<i class="icon-close icons"></i>
+			{{vm.generalInfo | traduction:'cancel'}}
+		  </a>
 		  <button type="submit" class="btn btn-success " [disabled]="vm != null && vm.form.invalid">
 			<i class="icon-check icons"></i>
 			{{vm.generalInfo | traduction:'salvar'}}
