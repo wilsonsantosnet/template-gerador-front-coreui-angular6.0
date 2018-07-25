@@ -13,11 +13,11 @@
 			<app-<#classNameLowerAndSeparator#>-container-edit [(vm)]="vm" *ngIf="_showContainerEdit"></app-<#classNameLowerAndSeparator#>-container-edit>
 		</article>
 		<footer class="card-footer  d-flex justify-content-end">
-		  <a href="javascript:history.back()" class="btn btn-secondary" (click)="onBack($event)" *ngIf="!isParent">
+		  <a href="javascript:history.back()" class="btn btn-secondary" *ngIf="!isParent">
 			<i class="fa fa-reply"></i>
 			{{vm.generalInfo | traduction:'voltar'}}
 		  </a>
-		  <a href="javascript:history.back()" class="btn btn-secondary" (click)="onBack($event)" *ngIf="isParent">
+		  <a href="#" class="btn btn-secondary" (click)="onBack($event)" *ngIf="isParent">
 			<i class="icon-close icons"></i>
 			{{vm.generalInfo | traduction:'cancel'}}
 		  </a>
