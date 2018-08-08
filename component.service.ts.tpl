@@ -30,6 +30,7 @@ export class <#className#>Service extends ServiceBase {
             mostrarFiltros: false,
             actionTitle: " <#classNameFormated#>",
             actionDescription: "",
+            key : this.serviceFields.getKey(),
             downloadUri: GlobalService.getEndPoints().DOWNLOAD,
             filterResult: [],
             modelFilter: {},

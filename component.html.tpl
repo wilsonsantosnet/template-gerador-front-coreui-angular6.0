@@ -15,14 +15,14 @@
           <a *ngIf="_showBtnFilter" class="btn py-0" (click)="onShowFilter()" title="{{vm.generalInfo | traduction:'filtro'}}">
             <span class="fa fa-filter" aria-hidden="true"></span> {{vm.generalInfo | traduction:'filtro'}}
           </a>
-          <a *ngIf="_showBtnNew" class="btn py-0" (click)="onCreate()" title="{{vm.generalInfo | traduction:'novoItem'}}">
+          <a *ngIf='_showBtnNew && vm | isAuth:"CanWrite"' class="btn py-0" (click)="onCreate()" title="{{vm.generalInfo | traduction:'novoItem'}}" >
             <span class="fa fa-plus" aria-hidden="true"></span> {{vm.generalInfo | traduction:'novoItem'}}
           </a>
         </div>
       </div>
     </header>
     <article class="card-body">
-      <make-grid [(vm)]="vm" (edit)="onEdit($event)" (details)="onDetails($event)" (print)="onPrint($event)" (deleteConfimation)="onDeleteConfimation($event)" (orderBy)="onOrderBy($event)" [showPrint]="_showBtnPrint" [showDelete]="_showBtnDelete" [showDetails]="_showBtnDetails" [showEdit]="_showBtnEdit"></make-grid>
+      <make-grid [(vm)]="vm" (edit)="onEdit($event)" (details)="onDetails($event)" (print)="onPrint($event)" (deleteConfimation)="onDeleteConfimation($event)" (orderBy)="onOrderBy($event)" [showPrint]='_showBtnPrint && vm | isAuth:"CanRead"' [showDelete]='_showBtnDelete && vm | isAuth:"CanDelete"' [showDetails]='_showBtnDetails && vm | isAuth:"CanRead"' [showEdit]='_showBtnEdit && vm | isAuth:"CanRead"'></make-grid>
     </article>
     <footer class="card-footer">
       <make-pagination [(vm)]="vm" (pageChanged)="onPageChanged($event)"></make-pagination>

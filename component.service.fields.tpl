@@ -11,6 +11,10 @@ export class <#className#>ServiceFields extends ServiceBase {
         super()
     }
 
+    getKey() {
+        return "<#className#>";
+    }
+
     getFormFields(moreFormControls? : any) {
         var formControls = Object.assign(moreFormControls || {},{
 <#riquered#>
