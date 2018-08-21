@@ -1,3 +1,3 @@
-﻿  <section class="<#colformField#>">
+  <section class="<#colformField#>"  <#attrSection#>>
 <#formField#>
   </section>
