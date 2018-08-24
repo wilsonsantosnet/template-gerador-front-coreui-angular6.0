@@ -61,7 +61,7 @@ export class <#className#>EditComponent extends ComponentBase implements OnInit,
         this.<#classNameInstance#>Service.save(model).subscribe((result) => {
         this.saveEnd.emit();
         if (!this.vm.manterTelaAberta)
-                this.router.navigate([LocationHistoryService.getLastNavigation()])
+                this.router.navigate([LocationHistoryService.getLastNavigation(this.vm.key)]);
         });
     }
 
