@@ -49,7 +49,7 @@ export class <#className#>CreateComponent extends ComponentBase implements OnIni
             this.vm.model.<#KeyNameCamelCase#> = result.data.<#KeyNameCamelCase#>;
             this.saveEnd.emit();
             if (!this.vm.manterTelaAberta)
-                this.router.navigate([LocationHistoryService.getLastNavigation()])
+                this.router.navigate([LocationHistoryService.getLastNavigation(this.vm.key)]);
         });
     }
 
