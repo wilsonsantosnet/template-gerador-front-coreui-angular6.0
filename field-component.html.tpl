@@ -1,4 +1,4 @@
-﻿<div class="row" [formGroup]="vm.form">
+﻿<div class="row" <#cssClassContainer#> [formGroup]="vm.form">
 <#fieldItems#>
 </div>
 
