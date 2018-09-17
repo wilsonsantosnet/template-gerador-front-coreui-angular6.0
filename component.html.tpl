@@ -5,7 +5,7 @@
     <header class="card-header">
       <div class="row align-items-center">
         <div class="col">
-          <span class="fa fa-edit" aria-hidden="true"></span> {{ vm.actionTitle }}<br>
+          <span class="fa fa-edit" aria-hidden="true"></span> {{vm.generalInfo | traduction:vm.actionTitle}}<br>
           <small class="text-muted">{{ vm.actionDescription }}</small>
         </div>
         <div class="col text-right">
@@ -66,7 +66,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title pull-left">Manutenção de {{ vm.actionTitle }}</h4>
+        <h4 class="modal-title pull-left">Manutenção de {{vm.generalInfo | traduction:vm.actionTitle}}</h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="onCancel()">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -98,7 +98,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title pull-left">Manutenção de {{ vm.actionTitle }}</h4>
+        <h4 class="modal-title pull-left">Manutenção de {{vm.generalInfo | traduction:vm.actionTitle}} </h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="onCancel()">
           <span aria-hidden="true">&times;</span>
         </button>
