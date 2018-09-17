@@ -33,7 +33,16 @@ export class <#className#>PrintComponent implements OnInit {
                 this.vm.details = data.data;
             });
         }
+        
+        this.updateCulture();
 
+    }
+    
+    updateCulture(culture: string = null) {
+        this.<#classNameInstance#>Service.updateCulture(culture).then((infos: any) => {
+				this.vm.infos = infos;
+				this.vm.grid = this.<#classNameInstance#>Service.getInfoGrid(infos);
+        });
     }
     
     onPrint() {
