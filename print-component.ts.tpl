@@ -40,11 +40,11 @@ export class <#className#>PrintComponent implements OnInit {
     
 	updateCulture(culture: string = null) {
         this.<#classNameInstance#>Service.updateCulture(culture).then((infos: any) => {
-				this.vm.infos = infos;
-				this.vm.grid = this.<#classNameInstance#>Service.getInfoGrid(infos);
+					this.vm.infos = infos;
+					this.vm.grid = this.<#classNameInstance#>Service.getInfoGrid(infos);
         });
         this.<#classNameInstance#>Service.updateCultureMain(culture).then((infos: any) => {
-				this.vm.generalInfo = infos;
+					this.vm.generalInfo = infos;
         });
     }
     
