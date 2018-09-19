@@ -43,7 +43,7 @@ export class <#className#>PrintComponent implements OnInit {
 				this.vm.infos = infos;
 				this.vm.grid = this.<#classNameInstance#>Service.getInfoGrid(infos);
         });
-        this.<#classNameInstance#>SService.updateCultureMain(culture).then((infos: any) => {
+        this.<#classNameInstance#>Service.updateCultureMain(culture).then((infos: any) => {
 				this.vm.generalInfo = infos;
         });
     }
