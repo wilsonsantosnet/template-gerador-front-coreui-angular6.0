@@ -96,7 +96,7 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
 
     public onExport() {
         this.<#classNameInstance#>Service.export().subscribe((result) => {
-            var blob = new Blob([result.blob()], {
+            var blob = new Blob([result._body], {
                 type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
             });
             var downloadUrl = window.URL.createObjectURL(blob);
