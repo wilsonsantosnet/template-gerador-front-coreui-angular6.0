@@ -84,6 +84,7 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
 
     public onFilter(modelFilter: any) {
 
+	modelFilter.queryOptimizerBehavior = "GRID_STRUCTUREHIERARCHY".toUpperCase();
         this.<#classNameInstance#>Service.get(modelFilter).subscribe((result) => {
             this.vm.filterResult = result.dataList;
             this.vm.summary = result.summary;
