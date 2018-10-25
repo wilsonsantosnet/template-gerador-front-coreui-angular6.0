@@ -48,10 +48,7 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
         this.<#classNameInstance#>Service.detectChanges(this.ref);
         this.<#classNameInstance#>Service.OnHide(this.saveModal, this.editModal, () => { this.hideComponents() });
 
-        this.<#classNameInstance#>Service.get(this.vm.modelFilter).subscribe((result) => {
-            this.vm.filterResult = result.dataList;
-            this.vm.summary = result.summary;
-        });
+        this.onFilter(this.vm.modelFilter);
 
         this.updateCulture();
 
@@ -139,13 +136,7 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
 
         this.<#classNameInstance#>Service.save(model).subscribe((result) => {
 
-            this.vm.filterResult = this.vm.filterResult.filter(function (model) {
-                return <#ExpressionKeyNames#>;
-            });
-
-            this.vm.model.<#KeyNameCamelCase#> = result.data.<#KeyNameCamelCase#>;
-            this.vm.filterResult.push(result.data);
-            this.vm.summary.total = this.vm.filterResult.length
+             this.onFilter(this.vm.modelFilter);
 
             if (!this.vm.manterTelaAberta) {
                 this.saveModal.hide();
