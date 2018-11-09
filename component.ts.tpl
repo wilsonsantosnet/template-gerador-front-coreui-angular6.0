@@ -93,13 +93,24 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
     }
 
     public onExport() {
-        this.<#classNameInstance#>Service.export().subscribe((result) => {
-            var blob = new Blob([result._body], {
-                type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-            });
-            var downloadUrl = window.URL.createObjectURL(blob);
-            window.location.href = downloadUrl;
-        })
+		this.<#classNameInstance#>.export(Object.assign(this.vm.modelFilter, { AttributeBehavior: "exportar" })).subscribe((result) => {
+		  var a = document.createElement("a");
+		  document.body.appendChild(a);
+		  (a as HTMLElement).style.visibility = 'hidden';
+
+		  var blob = new Blob([result], {
+			type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+		  });
+
+		  console.log(result);
+
+		  var downloadUrl = window.URL.createObjectURL(blob);
+
+		  a.href = downloadUrl;
+		  a.download = "<#className#>.xlsx";
+		  a.click();
+		  window.URL.revokeObjectURL(downloadUrl);
+		})
     }
 
     public onCreate() {
