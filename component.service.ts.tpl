@@ -28,7 +28,7 @@ export class <#className#>Service extends ServiceBase {
 
         return new ViewModel({
             mostrarFiltros: false,
-            actionTitle: " <#classNameFormated#>",
+            actionTitle: "<#classNameFormated#>",
             actionDescription: "",
             key : this.serviceFields.getKey(),
             downloadUri: GlobalService.getEndPoints().DOWNLOAD,
