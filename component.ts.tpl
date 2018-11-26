@@ -107,7 +107,7 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
             a.download = "<#className#>.xlsx";
             a.click();
             window.URL.revokeObjectURL(downloadUrl);
-		})
+        })
     }
 
     public onCreate() {
