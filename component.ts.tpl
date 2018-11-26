@@ -93,7 +93,7 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
     }
 
     public onExport() {
-		this.<#classNameInstance#>.export(Object.assign(this.vm.modelFilter, { AttributeBehavior: "exportar" })).subscribe((result) => {
+		this.<#classNameInstance#>Service.export(Object.assign(this.vm.modelFilter, { AttributeBehavior: "exportar" })).subscribe((result) => {
 		  var a = document.createElement("a");
 		  document.body.appendChild(a);
 		  (a as HTMLElement).style.visibility = 'hidden';
@@ -101,8 +101,6 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
 		  var blob = new Blob([result], {
 			type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
 		  });
-
-		  console.log(result);
 
 		  var downloadUrl = window.URL.createObjectURL(blob);
 
