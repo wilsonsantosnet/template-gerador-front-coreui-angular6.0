@@ -1,4 +1,4 @@
-﻿<!--EXT-->
+<!--EXT-->
 <section class="container-fluid">
 
   <section class="card">
@@ -31,7 +31,7 @@
 </section>
 
 <div bsModal #filterModal="bs-modal" class="modal fade">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog" [ngClass]="{'modal-lg': !isParent}">
     <form #formFilter="ngForm" (ngSubmit)="onFilter(vm.modelFilter)">
       <div class="modal-content">
         <div class="modal-header">
@@ -63,7 +63,7 @@
 </div>
 
 <div bsModal #saveModal="bs-modal" class="modal fade">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog" [ngClass]="{'modal-lg': !isParent}">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title pull-left">Manutenção de {{vm.generalInfo | traduction:vm.actionTitle}}</h4>
@@ -95,7 +95,7 @@
 </div>
 
 <div bsModal #editModal="bs-modal" class="modal fade">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog" [ngClass]="{'modal-lg': !isParent}">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title pull-left">Manutenção de {{vm.generalInfo | traduction:vm.actionTitle}} </h4>
@@ -127,7 +127,7 @@
 </div>
 
 <div bsModal #detailsModal="bs-modal" class="modal fade">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog" [ngClass]="{'modal-lg': !isParent}">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title pull-left">Detalhes de {{ vm.actionTitle }}</h4>
