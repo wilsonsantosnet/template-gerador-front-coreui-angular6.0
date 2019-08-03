@@ -30,7 +30,7 @@
   </section>
 </section>
 
-<div bsModal #filterModal="bs-modal" class="modal fade">
+<div bsModal [config]="{backdrop: 'static'}" #filterModal="bs-modal" class="modal fade">
   <div class="modal-dialog" [ngClass]="{'modal-lg': !isParent}">
     <form #formFilter="ngForm" (ngSubmit)="onFilter(vm.modelFilter)">
       <div class="modal-content">
@@ -62,7 +62,7 @@
   </div>
 </div>
 
-<div bsModal #saveModal="bs-modal" class="modal fade">
+<div bsModal [config]="{backdrop: 'static'}" #saveModal="bs-modal" class="modal fade">
   <div class="modal-dialog" [ngClass]="{'modal-lg': !isParent}">
     <div class="modal-content">
       <div class="modal-header">
@@ -94,7 +94,7 @@
   </div>
 </div>
 
-<div bsModal #editModal="bs-modal" class="modal fade">
+<div bsModal [config]="{backdrop: 'static'}" #editModal="bs-modal" class="modal fade">
   <div class="modal-dialog" [ngClass]="{'modal-lg': !isParent}">
     <div class="modal-content">
       <div class="modal-header">
@@ -126,7 +126,7 @@
   </div>
 </div>
 
-<div bsModal #detailsModal="bs-modal" class="modal fade">
+<div bsModal [config]="{backdrop: 'static'}" #detailsModal="bs-modal" class="modal fade">
   <div class="modal-dialog" [ngClass]="{'modal-lg': !isParent}">
     <div class="modal-content">
       <div class="modal-header">
