@@ -39,6 +39,7 @@ export class <#className#>Service extends ServiceBase {
             details: {},
             infos: this.getInfos(),
             grid: this.getInfoGrid(this.getInfos()),
+            gridOriginal: this.getInfoGrid(this.serviceFields.getInfosFields()),
             generalInfo: this.mainService.getInfos(),
             form: this._form,
             masks: this.masksConfig(),
