@@ -1,33 +1,33 @@
 <!--EXT-->
-<section class="container-fluid">
 
-  <section class="card">
-    <header class="card-header">
-      <div class="row align-items-center">
-        <div class="col">
-          <span class="fa fa-edit" aria-hidden="true"></span> {{vm.generalInfo | traduction:vm.actionTitle}}<br>
-          <small class="text-muted">{{ vm.actionDescription }}</small>
+<section class="container-fluid">
+    <section class="card">
+      <header class="card-header">
+        <div class="row align-items-center">
+          <div class="col">
+            <span class="fa fa-edit hidden-xs" aria-hidden="true"></span> {{vm.generalInfo | traduction:vm.actionTitle}}<br>
+            <small class="text-muted">{{ vm.actionDescription }}</small>
+          </div>
+          <div class="col text-right">
+            <a *ngIf="_showBtnBack" class="btn py-0 hidden-xs hidden-sm" href="javascript:history.back()" title="{{vm.generalInfo | traduction:'voltar'}}">
+              <span class="fa fa-arrow-left" aria-hidden="true"></span> {{vm.generalInfo | traduction:'voltar'}}
+            </a>
+            <a *ngIf="_showBtnFilter" class="btn py-0 hidden-xs" (click)="onShowFilter()" title="{{vm.generalInfo | traduction:'filtro'}}">
+              <span class="fa fa-filter" aria-hidden="true"></span> {{vm.generalInfo | traduction:'filtro'}}
+            </a>
+            <a *ngIf='_showBtnNew && vm | isAuth:"CanWrite"' class="btn py-0" (click)="onCreate()" title="{{vm.generalInfo | traduction:'novoItem'}}">
+              <span class="fa fa-plus" aria-hidden="true"></span> {{vm.generalInfo | traduction:'novoItem'}}
+            </a>
+          </div>
         </div>
-        <div class="col text-right">
-          <a *ngIf="_showBtnBack" class="btn py-0" href="javascript:history.back()" title="{{vm.generalInfo | traduction:'voltar'}}">
-            <span class="fa fa-arrow-left" aria-hidden="true"></span> {{vm.generalInfo | traduction:'voltar'}}
-          </a>
-          <a *ngIf="_showBtnFilter" class="btn py-0" (click)="onShowFilter()" title="{{vm.generalInfo | traduction:'filtro'}}">
-            <span class="fa fa-filter" aria-hidden="true"></span> {{vm.generalInfo | traduction:'filtro'}}
-          </a>
-          <a *ngIf='_showBtnNew && vm | isAuth:"CanWrite"' class="btn py-0" (click)="onCreate()" title="{{vm.generalInfo | traduction:'novoItem'}}" >
-            <span class="fa fa-plus" aria-hidden="true"></span> {{vm.generalInfo | traduction:'novoItem'}}
-          </a>
-        </div>
-      </div>
-    </header>
-    <article class="card-body">
-      <make-grid [(vm)]="vm" (edit)="onEdit($event)" (details)="onDetails($event)" (print)="onPrint($event)" (deleteConfimation)="onDeleteConfimation($event)" (orderBy)="onOrderBy($event)" [showPrint]='_showBtnPrint && vm | isAuth:"CanRead"' [showDelete]='_showBtnDelete && vm | isAuth:"CanDelete"' [showDetails]='_showBtnDetails && vm | isAuth:"CanRead"' [showEdit]='_showBtnEdit && vm | isAuth:"CanRead"'></make-grid>
-    </article>
-    <footer class="card-footer">
-      <make-pagination [(vm)]="vm" (pageChanged)="onPageChanged($event)"></make-pagination>
-    </footer>
-  </section>
+      </header>
+      <article class="card-body">
+        <make-grid [(vm)]="vm" (edit)="onEdit($event)" (details)="onDetails($event)" (print)="onPrint($event)" (deleteConfimation)="onDeleteConfimation($event)" (orderBy)="onOrderBy($event)" [showPrint]='_showBtnPrint && vm | isAuth:"CanRead"' [showDelete]='_showBtnDelete && vm | isAuth:"CanDelete"' [showDetails]='_showBtnDetails && vm | isAuth:"CanRead"' [showEdit]='_showBtnEdit && vm | isAuth:"CanRead"'></make-grid>
+      </article>
+      <footer class="card-footer">
+        <make-pagination [(vm)]="vm" (pageChanged)="onPageChanged($event)"></make-pagination>
+      </footer>
+    </section>
 </section>
 
 <div bsModal [config]="{backdrop: 'static'}" #filterModal="bs-modal" class="modal fade">
