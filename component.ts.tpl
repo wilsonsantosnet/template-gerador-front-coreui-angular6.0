@@ -13,6 +13,10 @@ import { LocationHistoryService } from '../../common/services/location.history';
     selector: 'app-<#classNameLowerAndSeparator#>',
     templateUrl: './<#classNameLowerAndSeparator#>.component.html',
     styleUrls: ['./<#classNameLowerAndSeparator#>.component.css'],
+    host: {
+        '[class.className]': '_showClassName',
+        '[class]': '_classNames'
+    }
 })
 export class <#className#>Component extends ComponentBase implements OnInit, OnDestroy {
 
