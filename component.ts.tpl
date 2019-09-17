@@ -50,8 +50,6 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
         if (this.parentIdValue) 
             this.vm.modelFilter[this.parentIdField] = this.parentIdValue;
 
-        this.<#classNameInstance#>Service.OnHide(this.saveModal, this.editModal, () => { this.hideComponents() });
-
         this.onFilter(this.vm.modelFilter);
 
         this.updateCulture();
@@ -254,7 +252,8 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
     }
 
     ngOnDestroy() {
-        this.changeCultureEmitter.unsubscribe();
+        if (this.changeCultureEmitter)
+            this.changeCultureEmitter.unsubscribe();
         this.<#classNameInstance#>Service.detectChangesStop();
     }
 
