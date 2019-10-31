@@ -29,8 +29,6 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
     ngOnInit() {
 
         this.vm = this.<#classNameInstance#>Service.initVM();
-        this.<#classNameInstance#>Service.detectChanges(this.ref);
-
         this.updateCulture();
 
         this.changeCultureEmitter = GlobalService.getChangeCultureEmitter().subscribe((culture : any) => {
