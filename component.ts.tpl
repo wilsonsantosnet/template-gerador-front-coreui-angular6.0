@@ -99,11 +99,16 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
             document.body.appendChild(a);
             (a as HTMLElement).style.visibility = 'hidden';
 
-            var blob = new Blob([result], {
+            var blob = new Blob([result._body], {
             	type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
             });
+	    
+			//Ou
+			//var blob = new Blob([result], {
+			//  type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+			//});
 
-            var downloadUrl = window.URL.createObjectURL(blob);
+			var downloadUrl = window.URL.createObjectURL(blob);
 
             a.href = downloadUrl;
             a.download = "<#className#>.xlsx";
