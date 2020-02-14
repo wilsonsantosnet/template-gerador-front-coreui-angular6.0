@@ -36,10 +36,8 @@ export class <#className#>Component extends ComponentBase implements OnInit, OnD
     @ViewChild('detailsModal', { static: false }) private detailsModal: ModalDirective;
     
     constructor(private <#classNameInstance#>Service: <#className#>Service, private router: Router, private ref: ChangeDetectorRef) {
-
         super();
         this.vm = null;
-
     }
 
     ngOnInit() {
