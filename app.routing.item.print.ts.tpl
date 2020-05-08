@@ -1,1 +1,1 @@
-      { path: '<#classNameLower#>/print/:id',<#authGuard#> loadChildren: () => import('./main/<#classNameLowerAndSeparator#>/<#classNameLowerAndSeparator#>-print/<#classNameLowerAndSeparator#>-print.module').then(m => m.<#className#>PrintModule) },
+﻿      { path: '<#classNameLower#>/print/:id',<#authGuard#> loadChildren: () => import('./main/<#classNameLowerAndSeparator#>/<#classNameLowerAndSeparator#>-print/<#classNameLowerAndSeparator#>-print.module').then(m => m.<#className#>PrintModule) },
